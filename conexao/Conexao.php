@@ -1,30 +1,30 @@
 <?php
+	
+define('DB_NAME','diario'); // COLOCAR O NOME DA BASE DE DADOS
+define('DB_HOST', 'localhost'); // COLOCAR O HOST DA BASE DE DADOS
+define('DB_PASS','newpwd'); // COLOCAR A SENHA DO BANCO DE DADOS AQUI
+define('DB_USER','root'); // COLOCAR O USUÁRIO DA BASE DE DADOS
 
-require_once 'config.php';
-
-class Conexao{
+class Conexao {
 
 	private static $instance;
-
 	public static function getInstance(){
-
-		if(!isset($this->$instance)){
-
+		if(!isset(self::$instance)){
 			try {
-				$this->$instance = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
-				$this->$instance->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$this->$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+				self::$instance = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME.';charset=utf8', DB_USER, DB_PASS);
+				self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				self::$instance->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);
+				
 			} catch (PDOException $e) {
 				echo $e->getMessage();
 			}
 
 		}
-
-		return $this->$instance;
+		return self::$instance;
 	}
  	
 	public static function prepare($sql){
-		return $this->getInstance()->prepare($sql);
+		return self::getInstance()->prepare($sql);
 	}
 
 }

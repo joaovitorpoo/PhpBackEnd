@@ -28,7 +28,7 @@ CREATE TABLE `conteudo` (
   `titulo` varchar(120) NOT NULL,
   `descricao` longtext NOT NULL,
   `horario` varchar(30) NOT NULL,
-  `disciplina_id` int(30) NOT NULL,
+  `universidade_id` int(30) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
@@ -40,30 +40,35 @@ CREATE TABLE `conteudo` (
 
 LOCK TABLES `conteudo` WRITE;
 /*!40000 ALTER TABLE `conteudo` DISABLE KEYS */;
-INSERT INTO `conteudo` VALUES (8,'algoritmo','aula de array','15:00',5);
+INSERT INTO `conteudo` VALUES (1,'Dev Web','Desenvolvimento Backend e Frontend','19:00',1);
+INSERT INTO `conteudo` VALUES (2,'PI','Projetos Interdisciplinares','19:00',1);
+INSERT INTO `conteudo` VALUES (3,'Tópicos Especiais','Ciência dos Dados','20:40',1);
+INSERT INTO `conteudo` VALUES (4,'Dev Mobile','Aplicativos Híbridos e Nativos','20:40',1);
+INSERT INTO `conteudo` VALUES (5,'POO','Estrutura de Dados','19:00',1);
 /*!40000 ALTER TABLE `conteudo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `new_table`
+-- Table structure for table `universidade_pessoas`
 --
 
-DROP TABLE IF EXISTS `new_table`;
+DROP TABLE IF EXISTS `universidade_pessoas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `new_table` (
+CREATE TABLE `universidade_pessoas` (
   `id_pessoa` int(11) DEFAULT NULL,
   `id_universidade` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `new_table`
+-- Dumping data for table `universidade_pessoas`
 --
 
-LOCK TABLES `new_table` WRITE;
-/*!40000 ALTER TABLE `new_table` DISABLE KEYS */;
-/*!40000 ALTER TABLE `new_table` ENABLE KEYS */;
+LOCK TABLES `universidade_pessoas` WRITE;
+/*!40000 ALTER TABLE `universidade_pessoas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `universidade_pessoas` ENABLE KEYS */;
+INSERT INTO `universidade_pessoas` VALUES (1,1),(2,2);
 UNLOCK TABLES;
 
 --
@@ -116,6 +121,8 @@ CREATE TABLE `universidade` (
 LOCK TABLES `universidade` WRITE;
 /*!40000 ALTER TABLE `universidade` DISABLE KEYS */;
 /*!40000 ALTER TABLE `universidade` ENABLE KEYS */;
+INSERT INTO `universidade` VALUES (1,'UniBH','Estoril'),(2,'UniBH','Cristiano Machado');
+
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

@@ -1,5 +1,5 @@
 <?php
-include __DIR__.'/../conexao/Conexao.php';
+include __DIR__.'/Conexao.php';
 
 class Pessoa extends Conexao {
 	private $nome;

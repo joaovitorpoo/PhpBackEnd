@@ -3,8 +3,8 @@ include __DIR__.'/../control/ConteudoControl.php';
  
 $data = file_get_contents('php://input');
 $obj =  json_decode($data);
-//echo $obj->titulo;
 
+//echo $obj->titulo; /*VER OBJETO*/
 
 
 if(!empty($data)){	
@@ -12,11 +12,6 @@ if(!empty($data)){
  $conteudoControl->insert($obj);
  header('Location:listar.php');
 }
-
-
-
-
-
 
 
 ?>

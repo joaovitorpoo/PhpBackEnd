@@ -1,5 +1,5 @@
 <?php
-define('PASTAPROJETO', 'PhpBackend');
+define('PASTAPROJETO', 'PhpBackend-master');
 
 /* Função criada para retornar o tipo de requisição */
 function checkRequest() {

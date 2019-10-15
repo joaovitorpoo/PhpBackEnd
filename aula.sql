@@ -18,7 +18,9 @@
 --
 -- Table structure for table `conteudo`
 --
-CREATE DATABASE diario;
+DROP DATABASE IF EXISTS `aula`
+CREATE DATABASE  `aula`;
+USE `aula`;
 
 DROP TABLE IF EXISTS `conteudo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

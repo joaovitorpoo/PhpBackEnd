@@ -4,9 +4,7 @@ include __DIR__.'/../model/Pessoa.php';
 class PessoaControl{
 	function insert($obj){
 		$pessoa = new Pessoa();
-		//echo $obj->titulo;
-		return $pessoa->insert($obj);
-		header('Location:listar.php');
+		return $pessoa->insert($obj);		
 	}
 
 	function update($obj,$id){

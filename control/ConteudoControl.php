@@ -6,7 +6,6 @@ class ConteudoControl{
 		$conteudo = new Conteudo();
 		//echo $obj->titulo;
 		return $conteudo->insert($obj);
-		header('Location:listar.php');
 	}
 
 	function update($obj,$id){

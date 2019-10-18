@@ -7,17 +7,15 @@ $obj =  json_decode($data);
 
 $id = $obj->id;
 
-
-if(!empty($data)){	
- $conteudoControl = new ConteudoControl();
- $conteudoControl->update($obj , $id);
- header('Location:listar.php');
+if(!$id) {
+	http_response_code(400);
+	echo json_encode(array("mensagem" => "É necessário um ID para atualização"));
 }
-
-
-
-
-
-
+else {
+	if(!empty($data)){	
+	 $conteudoControl = new ConteudoControl();
+	 $conteudoControl->update($obj , $id);
+	}
+}
 
 ?>

@@ -49,26 +49,24 @@ class Pessoa extends Conexao {
         $this->sexo = $sexo;
         return $this;
     }
-
     
     public function getIdade()   {
         return $this->idade;
     }
 
-   
     public function setIdade($idade) {
         $this->idade = $idade;
         return $this;
     }
     
-    public function insert($obj){
-    	$sql = "INSERT INTO pessoas(nome,idade,altura,peso,sexo) VALUES (:nome,:altura,:peso,:sexo,:idade)";
+    public function insert($obj){    
+    	$sql = "INSERT INTO pessoas(nome,idade,altura,peso,sexo) VALUES (:nome,:idade,:altura,:peso,:sexo)";
     	$consulta = Conexao::prepare($sql);
         $consulta->bindValue('nome',  $obj->nome);
-        $consulta->bindValue('altura', $obj->altura);
-        $consulta->bindValue('peso' , $obj->peso);
-        $consulta->bindValue('sexo' , $obj->sexo);
         $consulta->bindValue('idade' , $obj->idade);
+        $consulta->bindValue('peso' , $obj->peso);
+        $consulta->bindValue('altura', $obj->altura);
+        $consulta->bindValue('sexo' , $obj->sexo);
     	return $consulta->execute();
 
 	}
@@ -77,10 +75,10 @@ class Pessoa extends Conexao {
 		$sql = "UPDATE pessoas SET nome = :nome, altura = :altura,peso = :peso, sexo = :sexo,idade =:idade, disciplina_id = :disciplina_id WHERE id = :id ";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('nome', $obj->nome);
-		$consulta->bindValue('altura', $obj->altura);
-		$consulta->bindValue('peso' , $obj->peso);
-		$consulta->bindValue('sexo', $obj->sexo);
-		$consulta->bindValue('idade' , $obj->periodo_id);		
+		$consulta->bindValue('idade' , $obj->idade);		
+        $consulta->bindValue('peso' , $obj->peso);
+        $consulta->bindValue('altura', $obj->altura);
+        $consulta->bindValue('sexo', $obj->sexo);
 		$consulta->bindValue('id', $id);
 		return $consulta->execute();
 	}
@@ -105,7 +103,6 @@ class Pessoa extends Conexao {
 		$consulta->execute();
 		return $consulta->fetchAll();
 	}
-    
 }
 
 ?>

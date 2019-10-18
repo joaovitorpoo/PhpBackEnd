@@ -1,4 +1,5 @@
 <?php
+//define('PASTAPROJETO', 'AulaBanco');
 define('PASTAPROJETO', 'PhpBackend-master');
 
 /* Função criada para retornar o tipo de requisição */

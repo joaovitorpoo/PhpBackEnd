@@ -25,9 +25,13 @@ function checkRequest() {
 	return $answer;
 }
 
-$request = $_SERVER['REQUEST_URI']; // IDENTIFICA A URI DA REQUISIÇÃO
-
 $answer = checkRequest();
+
+$request = $_SERVER['REQUEST_URI']; 
+http://localhost:8080/PhpBackEnd
+
+// IDENTIFICA A URI DA REQUISIÇÃO
+
 
 switch ($request) {
     case '/'.PASTAPROJETO.'/' :

@@ -2,12 +2,21 @@
 include __DIR__.'/Conexao.php';
 
 class Pessoa extends Conexao {
+    private $id; 
 	private $nome;
     private $idade;    
     private $altura;
     private $peso;
     private $sexo;
 
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
 
     public function getNome() {
         return $this->nome;
@@ -67,8 +76,8 @@ class Pessoa extends Conexao {
         $consulta->bindValue('peso' , $obj->peso);
         $consulta->bindValue('altura', $obj->altura);
         $consulta->bindValue('sexo' , $obj->sexo);
-    	return $consulta->execute();
-
+    	$consulta->execute();
+        return Conexao::lastId(); /*Aqui vc tem o ID da pessoa, você pode não retornar ele e adicionar uma nova query para inserção e inserir nas duas tabelas ao mesmo tempo se for sempre assim */        
 	}
 
 	public function update($obj,$id = null){

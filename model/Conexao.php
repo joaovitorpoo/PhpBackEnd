@@ -22,6 +22,9 @@ class Conexao {
 		return self::$instance;
 	}
  	
+ 	public static function lastId() {
+ 		return self::getInstance()->lastInsertId();
+ 	}
 	public static function prepare($sql){
 		return self::getInstance()->prepare($sql);
 	}

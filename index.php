@@ -1,6 +1,6 @@
 <?php
 //define('PASTAPROJETO', 'AulaBanco');
-define('PASTAPROJETO', 'PhpBackend-master');
+define('PASTAPROJETO', 'AulaBanco');
 
 /* Função criada para retornar o tipo de requisição */
 function checkRequest() {
@@ -28,12 +28,13 @@ function checkRequest() {
 $answer = checkRequest();
 
 $request = $_SERVER['REQUEST_URI']; 
-http://localhost:8080/PhpBackEnd
 
 // IDENTIFICA A URI DA REQUISIÇÃO
 
-
 switch ($request) {
+    case '/'.PASTAPROJETO:
+      require __DIR__ . '/api/api.php';
+        break;
     case '/'.PASTAPROJETO.'/' :
         require __DIR__ . '/api/api.php';
         break;

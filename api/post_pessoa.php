@@ -10,8 +10,9 @@ $obj =  json_decode($data);
 if(!empty($data)){	
 	try {
  		$pessoaControl = new PessoaControl();
- 		$pessoaControl->insert($obj);
+ 		$resposta = $pessoaControl->insert($obj);
  		http_response_code(200);
+ 		$obj->id = $resposta;
  		echo json_encode($obj);
  	}
  	catch (PDOException $e) {

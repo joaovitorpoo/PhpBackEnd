@@ -21,8 +21,6 @@ class Pessoa extends Conexao {
     public function getNome() {
         return $this->nome;
     }
-
-   
     public function setNome($nome) {
         $this->nome = $nome;
         return $this;
@@ -97,6 +95,7 @@ class Pessoa extends Conexao {
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('id',$id);
 		$consulta->execute();
+        return $consulta->execute();
 	}
 
 	public function find($id = null){
@@ -104,6 +103,7 @@ class Pessoa extends Conexao {
         $consulta = Conexao::prepare($sql);
         $consulta->bindValue('id',$id);
         $consulta->execute();
+        return $consulta->fetch();
 	}
 
 	public function findAll(){

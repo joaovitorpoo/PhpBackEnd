@@ -33,6 +33,17 @@ $request = $_SERVER['REQUEST_URI'];
 
 // IDENTIFICA A URI DA REQUISIÇÃO
 
+
+$args = explode('/', rtrim($request, '/'));
+$endpoint = array_shift($args);
+if (array_key_exists(0, $args) && !is_numeric($args[0])) {
+    $verb = array_shift($args);
+}
+
+if ($args) {
+	$request = '/'.PASTAPROJETO.'/'.$args[0];
+}
+
 switch ($request) {
     case '/'.PASTAPROJETO:
       require __DIR__ . '/api/api.php';

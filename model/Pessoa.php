@@ -1,4 +1,5 @@
 <?php
+
 include __DIR__.'/Conexao.php';
 
 class Pessoa extends Conexao {
@@ -8,7 +9,6 @@ class Pessoa extends Conexao {
     private $altura;
     private $peso;
     private $sexo;
-
 
     public function getId() {
         return $this->id;
@@ -26,17 +26,14 @@ class Pessoa extends Conexao {
         return $this;
     }
 
-    
     public function getAltura() {
         return $this->altura;
     }
 
-   
     public function setAltura($altura) {
         $this->altura = $altura;
         return $this;
     }
-
     
     public function getPeso() {
         return $this->peso;
@@ -46,7 +43,6 @@ class Pessoa extends Conexao {
         $this->peso = $peso;
         return $this;
     }
-
     
     public function getSexo()  {
         return $this->sexo;
@@ -79,7 +75,13 @@ class Pessoa extends Conexao {
 	}
 
 	public function update($obj,$id = null){
-		$sql = "UPDATE pessoas SET nome = :nome, altura = :altura,peso = :peso, sexo = :sexo,idade =:idade, disciplina_id = :disciplina_id WHERE id = :id ";
+		$sql = "UPDATE pessoas SET 
+            nome = :nome, 
+            altura = :altura,
+            peso = :peso, 
+            sexo = :sexo,
+            idade =:idade 
+        WHERE id = :id ";
 		$consulta = Conexao::prepare($sql);
 		$consulta->bindValue('nome', $obj->nome);
 		$consulta->bindValue('idade' , $obj->idade);		
@@ -113,5 +115,4 @@ class Pessoa extends Conexao {
 		return $consulta->fetchAll();
 	}
 }
-
 ?>

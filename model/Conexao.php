@@ -1,5 +1,5 @@
 <?php
-	
+
 define('DB_NAME','aula'); // COLOCAR O NOME DA BASE DE DADOS
 define('DB_HOST', 'localhost'); // COLOCAR O HOST DA BASE DE DADOS
 define('DB_USER','root'); // COLOCAR O USUÁRIO DA BASE DE DADOS
@@ -17,14 +17,14 @@ class Conexao {
 			} catch (PDOException $e) {
 				echo $e->getMessage();
 			}
-
 		}
 		return self::$instance;
 	}
  	
  	public static function lastId() {
  		return self::getInstance()->lastInsertId();
- 	}
+	}
+	 
 	public static function prepare($sql){
 		return self::getInstance()->prepare($sql);
 	}

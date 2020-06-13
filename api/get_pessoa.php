@@ -4,7 +4,7 @@ $pessoaControl = new PessoaControl();
 
 header('Content-type: application/json');
 
-if (!$args[1]) {
+if (!isset($args[1])) {
 	$result = $pessoaControl->findAll();
 	if ($result) {
 		http_response_code(200);

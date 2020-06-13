@@ -2,8 +2,9 @@
 include __DIR__.'/../model/Pessoa.php';
 
 class PessoaControl{
-	function insert($obj){
-		$pessoa = new Pessoa();
+	function insert($obj){		
+		$pessoa = new Pessoa();	
+		/* CHANCE DE MANIPULAR A REQUISIÇÃO ANTES DE ACESSAR O MODEL */			
 		return $pessoa->insert($obj);		
 	}
 

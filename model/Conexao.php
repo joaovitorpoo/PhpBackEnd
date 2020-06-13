@@ -3,7 +3,7 @@
 define('DB_NAME','aula'); // COLOCAR O NOME DA BASE DE DADOS
 define('DB_HOST', 'localhost'); // COLOCAR O HOST DA BASE DE DADOS
 define('DB_USER','root'); // COLOCAR O USUÁRIO DA BASE DE DADOS
-define('DB_PASS','newpwd'); // COLOCAR A SENHA DO BANCO DE DADOS AQUI
+define('DB_PASS',''); // COLOCAR A SENHA DO BANCO DE DADOS AQUI
 
 class Conexao {
 	private static $instance;
@@ -22,11 +22,17 @@ class Conexao {
 	}
  	
  	public static function lastId() {
- 		return self::getInstance()->lastInsertId();
+		 return self::getInstance()->lastInsertId();
+		 //insert into .. medico... name.. id.. sexo.. crm... 
+		 //20		 
 	}
 	 
 	public static function prepare($sql){
 		return self::getInstance()->prepare($sql);
+		// prepare("select * from users"); // QUERY VALIDA
+		// prepare("select * from ; 189213 ; 12830912") // QUERY INVÁLIDA
+		// prepare () $name = Ramon;
+		// "SELECT * FROM users where name = 'Ramon'";
 	}
 
 }

@@ -1,8 +1,10 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Methods: GET, POST,");
+
 //define('PASTAPROJETO', 'AulaBanco');
-define('PASTAPROJETO', 'AulaBanco');
+define('PASTAPROJETO', 'PhpBackEnd');
 
 /* Função criada para retornar o tipo de requisição */
 function checkRequest() {
@@ -29,12 +31,21 @@ function checkRequest() {
 
 $answer = checkRequest();
 
+// localhost/PhpBackEnd/pessoas
+// localhost/PhpBackEnd/conteudo 
+// localhost/PhpBackEnd/universidades 
+
 $request = $_SERVER['REQUEST_URI']; 
 
 // IDENTIFICA A URI DA REQUISIÇÃO
 
-
 $args = explode('/', rtrim($request, '/'));
+// localhost/PhpBackEnd/pessoas
+
+// $args[0] localhost
+// $args[1] PhpBackEnd
+// $args[2] pessoas
+
 $endpoint = array_shift($args);
 if (array_key_exists(0, $args) && !is_numeric($args[0])) {
     $verb = array_shift($args);
@@ -42,26 +53,31 @@ if (array_key_exists(0, $args) && !is_numeric($args[0])) {
 
 if ($args) {
 	$request = '/'.PASTAPROJETO.'/'.$args[0];
+	// /PhpBackEnd/pessoas
+	// /PhpBackEnd/pessoas/1
+	// /PhpBackEnd/conteudo
 }
 
 switch ($request) {
-    case '/'.PASTAPROJETO:
+	case '/'.PASTAPROJETO:	
       require __DIR__ . '/api/api.php';
         break;
-    case '/'.PASTAPROJETO.'/' :
+	case '/'.PASTAPROJETO.'/' :		
         require __DIR__ . '/api/api.php';
         break;
     case '' :
         require __DIR__ . '/api/api.php';
         break;
-    case '/'.PASTAPROJETO.'/pessoas' :
-        require __DIR__ . '/api/'.$answer.'_pessoa.php';
+	case '/'.PASTAPROJETO.'/pessoas' :		
+		require __DIR__ . '/api/'.$answer.'_pessoa.php';
         break;
     case '/'.PASTAPROJETO.'/conteudo' :
-        require __DIR__ . '/api/'.$answer.'_conteudo.php';
-        break;
-    
+		require __DIR__ . '/api/'.$answer.'_conteudo.php';								
+		break;		
+	case '/'.PASTAPROJETO.'/universidades' :
+		require __DIR__ . '/api/'.$answer.'_universidade.php';								
+		break;
     default:
         //require __DIR__ . '/api/404.php';
-        break;
+		break;		
 }

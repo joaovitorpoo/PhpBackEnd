@@ -1,7 +1,6 @@
 <?php
 include __DIR__.'/../control/PessoaControl.php';
  
-
 header('Content-type: application/json');
 
 $data = file_get_contents('php://input');
@@ -24,6 +23,5 @@ else {
 	http_response_code(400);
 	echo json_encode(array("mensagem" => "Não foram enviados parâmetros"));
 }
-
 
 ?>

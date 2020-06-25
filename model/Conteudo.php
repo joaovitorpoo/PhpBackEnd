@@ -46,7 +46,7 @@ class Conteudo extends Conexao {
         $consulta->bindValue('titulo',  $obj->titulo);
         $consulta->bindValue('descricao', $obj->descricao);
         $consulta->bindValue('horario' , $obj->horario);        
-        $consulta->bindValue('universidade_id' , $obj->periodo_id);
+        $consulta->bindValue('universidade_id' , $obj->universidade_id);
     	return $consulta->execute();
 	}
 
